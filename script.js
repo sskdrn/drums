@@ -256,3 +256,30 @@ document.onkeydown = function (e) {
   rightTom();
 
 };
+
+//Click Events
+var canvas=document.getElementById("myCanvas");
+canvas.addEventListener("click",function(){
+  hiHat();
+  snare();
+  kick();
+  floorTom();
+  crash();
+  leftTom();
+  rightTom();
+  var audio = document.querySelector("audio[data-sound=\"" + (event.x+event.y) % 16 + "\"]");
+  audio.currentTime = 0;
+  audio.play();
+});
+canvas.addEventListener("touchdown",function(){
+  hiHat();
+  snare();
+  kick();
+  floorTom();
+  crash();
+  leftTom();
+  rightTom();
+  var audio = document.querySelector("audio[data-sound=\"" + (event.x+event.y) % 16 + "\"]");
+  audio.currentTime = 0;
+  audio.play();
+});

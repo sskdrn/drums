@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,21 +21,30 @@
             var r=Math.floor(Math.random()*255);
             var g=Math.floor(Math.random()*255);
             var b=Math.floor(Math.random()*255);
-            var newCircle = new Path.Circle(point, 500)
+            var newCircle = new Path.Circle(point, 500);
 			newCircle.fillColor = "rgb(" + r +","+g+","+b+")"
 			circles.push(newCircle);
-		}
-
-		function onFrame(event){
-      for(var i = 0; i < circles.length; i++){
-        circles[i].scale(1.1);
-        circles[i].fillColor.hue += 1;
-        if(circles[i].area >100000000){
-        	circles[i].remove();
-          circles.splice(i, 1);
         }
-      }
-    }
+        var canvas=document.getElementById("myCanvas");
+        canvas.addEventListener("click",function(event) {
+            var point = new Point(event.x, event.y);
+            var r=Math.floor(Math.random()*255);
+            var g=Math.floor(Math.random()*255);
+            var b=Math.floor(Math.random()*255);
+            var newCircle = new Path.Circle(point, 500);
+			newCircle.fillColor = "rgb(" + r +","+g+","+b+")"
+			circles.push(newCircle);
+		});
+		function onFrame(event){
+            for(var i = 0; i < circles.length; i++){
+                circles[i].scale(1.1);
+                circles[i].fillColor.hue += 1;
+                if(circles[i].area >100000000){
+        	        circles[i].remove();
+                    circles.splice(i, 1);
+                }
+            }
+        }
     </script>
 
     <title>Drums!</title>
