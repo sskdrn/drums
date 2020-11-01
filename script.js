@@ -1,6 +1,6 @@
 
 window.addEventListener("keydown", (event) => {
-  var audio = document.querySelector("audio[data-sound=\"" + event.keyCode % 16 + "\"]");
+  var audio = document.querySelector("audio[data-sound=\"" + (event.keyCode%16 + 1) + "\"]");
   audio.currentTime = 0;
   audio.play();
 });
@@ -267,7 +267,7 @@ canvas.addEventListener("click",function(){
   crash();
   leftTom();
   rightTom();
-  var audio = document.querySelector("audio[data-sound=\"" + (event.x+event.y) % 16 + "\"]");
+  var audio = document.querySelector("audio[data-sound=\"" + ((event.x+event.y)%16 +1) + "\"]");
   audio.currentTime = 0;
   audio.play();
 });
@@ -279,7 +279,7 @@ canvas.addEventListener("touchdown",function(){
   crash();
   leftTom();
   rightTom();
-  var audio = document.querySelector("audio[data-sound=\"" + (event.x+event.y) % 16 + "\"]");
+  var audio = document.querySelector("audio[data-sound=\"" + ((event.x+event.y)%16 + 1) + "\"]");
   audio.currentTime = 0;
   audio.play();
 });
